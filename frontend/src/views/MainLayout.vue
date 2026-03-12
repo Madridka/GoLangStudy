@@ -21,7 +21,6 @@ onMounted(() => {
       {{ user.title }}
       {{ user.completed }}
     </div>
-    {{}}
     <MenuDock />
   </div>
 </template>
