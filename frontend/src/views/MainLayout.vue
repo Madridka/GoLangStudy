@@ -11,6 +11,7 @@ const valueStore = useValueStore()
 onMounted(() => {
   userInfoStore.getUsers()
   valueStore.getValue()
+  valueStore.getMobile()
 })
 </script>
 
@@ -28,7 +29,8 @@ onMounted(() => {
     </div>
 
     <div class="bg-green-500">
-      {{ valueStore.valueFromServer }}
+      {{ 'value: ' + valueStore.valueFromServer }}
+      {{ 'mobile: ' + valueStore.mobileString }}
     </div>
 
     <MenuDock />

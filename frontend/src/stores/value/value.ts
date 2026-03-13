@@ -4,16 +4,26 @@ import { ref, type Ref } from 'vue'
 
 export const useValueStore = defineStore('valueStore', () => {
   const valueFromServer: Ref<number> = ref(0)
+  const mobileString: Ref<string> = ref('')
 
-  const URL = 'http://localhost:8080/api/value'
+  const URLValue = 'http://localhost:8080/api/value'
+  const URLMobile = 'http://localhost:8080/api/mobile'
 
   const getValue = (): Promise<void> =>
-    axios.get(URL).then((response: AxiosResponse) => {
+    axios.get(URLValue).then((response: AxiosResponse) => {
       valueFromServer.value = response.data
+    })
+
+  const getMobile = (): Promise<void> =>
+    axios.get(URLMobile).then((response: AxiosResponse) => {
+      mobileString.value = response.data
     })
 
   return {
     getValue,
+    getMobile,
+
     valueFromServer,
+    mobileString,
   }
 })
