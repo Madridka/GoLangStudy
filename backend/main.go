@@ -11,11 +11,13 @@ type ResponseValue struct {
 }
 
 type ResponseMobile struct {
-	Mobile string `json:"mobile"`
+	Mobile        string `json:"mobile"`
+	Compensations string `json:"compensations"`
 }
 
 var a int = 5
 var mobile string = "E100"
+var compensations string = "noCompensation"
 
 func main() {
 	http.HandleFunc("/api/value", corsMiddleware(sendValue))
@@ -35,7 +37,7 @@ func sendValue(w http.ResponseWriter, r *http.Request) {
 }
 
 func sendMobile(w http.ResponseWriter, r *http.Request) {
-	response := ResponseMobile{Mobile: mobile}
+	response := ResponseMobile{Mobile: mobile, Compensations: compensations}
 	w.Header().Set("Content-Type", "application/json")
 
 	if err := json.NewEncoder(w).Encode(response); err != nil {

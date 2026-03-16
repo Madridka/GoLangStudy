@@ -18,7 +18,7 @@ onMounted(() => {
 <template>
   <div class="bg-gray-200 h-screen p-4">
     <!-- <router-view /> -->
-    <div class="bg-red-500">
+    <!-- <div class="bg-red-500">
       {{ userInfoStore.users }}
       <div v-for="user in userInfoStore.users">
         {{ user.userId }}
@@ -26,11 +26,12 @@ onMounted(() => {
         {{ user.title }}
         {{ user.completed }}
       </div>
-    </div>
+    </div> -->
 
     <div class="bg-green-500">
       {{ 'value: ' + valueStore.valueFromServer }}
-      {{ 'mobile: ' + valueStore.mobileString }}
+      <!-- {{ 'mobile: ' + valueStore.mobileString }}  -->
+      {{ 'data: ' + valueStore.mobileData?.compensations }}
     </div>
 
     <MenuDock />
